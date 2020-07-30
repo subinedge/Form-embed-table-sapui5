@@ -1,0 +1,63 @@
+<mvc:View controllerName="fiori.controller.MainScreen" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Main Screen" class="sapUiSizeCompact">
+		<VBox class="sapUiLargeMarginBottom">
+			<f:SimpleForm title="Fill in the Details">
+				<f:content>
+					<Label text="First Name" required="true"/>
+					<Input id="fname"></Input>
+					<Label text="Last Name" required="true"/>
+					<Input id="lname"></Input>
+					<Label text="Email ID" required="true"/>
+					<Input id="email"></Input>
+					<Label text="Designation" required="true"/>
+					<ComboBox id="moduleConsultants" items="{ComboBox>/designation}">
+						<core:Item key="{ComboBox>des}" text="{ComboBox>des}"/>
+					</ComboBox>
+					<Label text="Date of Joining"/>
+					<DatePicker id="datePick" width="40%" value="1996-04-06" valueFormat="yyyy-MM-dd" displayFormat="long"/>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<Toolbar>
+			<Button text="Add Record" type="Emphasized" width="20%" press="handleFormSubmit"></Button>
+		</Toolbar>
+		<Table id="table" items="{/tableAdd}">
+			<columns>
+				<Column>
+					<Label text="First Name"/>
+				</Column>
+				<Column>
+					<Label text="Last Name"/>
+				</Column>
+				<Column>
+					<Label text="Email ID"/>
+				</Column>
+				<Column>
+					<Label text="Designation"/>
+				</Column>
+				<Column>
+					<Label text="Date of Joining"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Navigation">
+					<cells>
+						<Text text="{firstName}"></Text>
+						<Text text="{lastName}"></Text>
+						<Text text="{emailid}"></Text>
+						<Text text="{combobox}"></Text>
+						<Text text="{doj}"></Text>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Next" press="handleNext" type="Accept"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
