@@ -37,6 +37,7 @@
 					<!--<core:Fragment fragmentName="fiori.fragments.DetailScreenButton" type="XML"/>-->
 					<Button text="Back" press="backtoMain" type="Accept"></Button>
 					<Button text="Next" press="handleNext" type="Accept"></Button>
+					<Button text="Message Box" press="handlei18nController" type="Accept"></Button>
 					<Button text="Dialog" press="handleDialogOpen" type="Accept"></Button>
 				</contentRight>
 			</Bar>

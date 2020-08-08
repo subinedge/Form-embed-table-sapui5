@@ -3,12 +3,14 @@ sap.ui.define([
 	"fiori/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History",
-	"fiori/model/formatter"
+	"fiori/model/formatter",
+	"sap/m/MessageBox"
 ], function (
 	BaseController,
 	JSONModel,
 	History,
-	formatter
+	formatter,
+	MessageBox
 ) {
 	"use strict";
 
@@ -94,6 +96,14 @@ sap.ui.define([
 		handleDialogClose: function () {
 
 			this.oDialog.close();
+		},
+
+		handlei18nController: function () {
+			var msgBox = this.getResourceBundle().getText("welcomeMessage");
+			MessageBox.show(msgBox, {
+				title: "Information",
+				icon: MessageBox.Icon.INFORMATION
+			});
 		},
 
 		_onObjectMatched: function (oEvent) {
