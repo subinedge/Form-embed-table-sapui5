@@ -1,15 +1,7 @@
-<mvc:View controllerName="fiori.controller.DetailScreen" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="fiori.controller.DetailScreen" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
 	<Page title="{i18n>pageTitle}" class="sapUiSizeCompact">
-		<f:SimpleForm>
-			<f:content>
-				<Label design="Bold" text="{i18n>firstName}"/>
-				<Input width="50%" placeholder="{i18n>firstNamePlaceholder}" id="firstNameDetail"/>
-				<Label design="Bold" text="{i18n>lastName}"/>
-				<Input width="50%" placeholder="{i18n>lastNamePlaceholder}" id="lastNameDetail"/>
-				<Label design="Bold" text="{i18n>emailID}"/>
-				<Input width="50%" placeholder="{i18n>emailIDPlaceholder}" id="emailIDDetail"/>
-			</f:content>
-		</f:SimpleForm>
+		<core:Fragment fragmentName="fiori.fragments.SimpleForm" type="XML"/>
 		<content>
 			<Table id="oTab" items="{/JSONDataName}">
 				<headerToolbar>
@@ -42,8 +34,10 @@
 		<footer>
 			<Bar>
 				<contentRight>
+					<!--<core:Fragment fragmentName="fiori.fragments.DetailScreenButton" type="XML"/>-->
 					<Button text="Back" press="backtoMain" type="Accept"></Button>
 					<Button text="Next" press="handleNext" type="Accept"></Button>
+					<Button text="Dialog" press="handleDialogOpen" type="Accept"></Button>
 				</contentRight>
 			</Bar>
 		</footer>

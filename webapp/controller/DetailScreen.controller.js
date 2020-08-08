@@ -17,7 +17,12 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function () {
-			this.getRouter().getRoute("DetailScreen").attachPatternMatched(this._onObjectMatched, this);
+
+			if (!this.oDialog) {
+				this.oDialog = sap.ui.xmlfragment("fiori.fragments.DetailScreenButton", this);
+			}
+
+			this.getView().addDependent(this.oDialog);
 
 			// Steps on integrating JSON model to table:
 			// 			1. Import and Intialize JSON model in controller
@@ -79,6 +84,16 @@ sap.ui.define([
 
 		backtoMain: function () {
 			this.getRouter().navTo("MainScreen");
+		},
+
+		handleDialogOpen: function () {
+
+			this.oDialog.open();
+		},
+
+		handleDialogClose: function () {
+
+			this.oDialog.close();
 		},
 
 		_onObjectMatched: function (oEvent) {

@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Dialog title="{i18n>title}">
+		<ToolbarSpacer></ToolbarSpacer>
+		<Label text="{i18n>Designation}"/>
+		<ToolbarSpacer></ToolbarSpacer>
+		<Input id="DialogFragment" placeholder="{i18n>dialogFragment}"/>
+		<ToolbarSpacer></ToolbarSpacer>
+		<beginButton>
+			<Button text="Close" type="Reject" press="handleDialogClose"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
