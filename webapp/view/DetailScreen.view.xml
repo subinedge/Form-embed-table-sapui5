@@ -1,6 +1,44 @@
-<mvc:View controllerName="fiori.controller.DetailScreen" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Detail" class="sapUiSizeCompact">
-		<content></content>
+<mvc:View controllerName="fiori.controller.DetailScreen" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc">
+	<Page title="{i18n>pageTitle}" class="sapUiSizeCompact">
+		<f:SimpleForm>
+			<f:content>
+				<Label design="Bold" text="{i18n>firstName}"/>
+				<Input width="50%" placeholder="{i18n>firstNamePlaceholder}" id="firstNameDetail"/>
+				<Label design="Bold" text="{i18n>lastName}"/>
+				<Input width="50%" placeholder="{i18n>lastNamePlaceholder}" id="lastNameDetail"/>
+				<Label design="Bold" text="{i18n>emailID}"/>
+				<Input width="50%" placeholder="{i18n>emailIDPlaceholder}" id="emailIDDetail"/>
+			</f:content>
+		</f:SimpleForm>
+		<content>
+			<Table id="oTab" items="{/JSONDataName}">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="{i18n>formDetails}"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Label text="{i18n>firstName}"/>
+					</Column>
+					<Column>
+						<Label text="{i18n>lastName}"/>
+					</Column>
+					<Column>
+						<Label text="{i18n>emailID}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="handleColumnPress">
+						<cells>
+							<Text text="{firstName}"/>
+							<Text text="{lastName}"/>
+							<Text text="{emailID}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
 		<footer>
 			<Bar>
 				<contentRight>
