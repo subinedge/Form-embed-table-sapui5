@@ -68,6 +68,8 @@ sap.ui.define([
 			// 5. Bind the JSON model to table
 			otable.setModel(json);
 
+			this.getRouter().getRoute("DetailScreen").attachPatternMatched(this._onObjectMatched, this);
+
 		},
 
 		handleColumnPress: function (event) {
@@ -81,7 +83,16 @@ sap.ui.define([
 		},
 
 		handleNext: function () {
-			this.getRouter().navTo("SubDetailScreen");
+			var firstNamePass = this.byId("firstNameDetail").getValue();
+			var lastNamePass = this.byId("lastNameDetail").getValue();
+			var emailIDPass = this.byId("emailIDDetail").getValue();
+			
+
+			this.getRouter().navTo("SubDetailScreen", {
+				"firstName": firstNamePass,
+				"lastName": lastNamePass,
+				"emailID": emailIDPass
+			});
 		},
 
 		backtoMain: function () {

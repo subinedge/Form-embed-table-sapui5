@@ -1,6 +1,17 @@
-<mvc:View controllerName="fiori.controller.SubDetailScreen" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<mvc:View controllerName="fiori.controller.SubDetailScreen" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns="sap.m">
 	<Page title="Sub Details" class="sapUiSizeCompact">
-		<content></content>
+		<content>
+			<f:SimpleForm title="Sub Details Form">
+				<f:content>
+					<Label design="Bold" text="First Name"/>
+					<Text id="SubDetailFirstName"/>
+					<Label design="Bold" text="Last Name"/>
+					<Text id="SubDetailLastName"/>
+					<Label design="Bold" text="Email ID"/>
+					<Text id="SubDetailEmail"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
 		<footer>
 			<Bar>
 				<contentRight>

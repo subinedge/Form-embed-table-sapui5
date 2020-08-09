@@ -106,7 +106,7 @@
 					]
 				},
 					{
-					"pattern": "Cats",
+					"pattern": "Cats/{firstName}/{lastName}/{emailID}",
 					"name": "SubDetailScreen",
 					"target": [
 						"SubDetailScreen"
